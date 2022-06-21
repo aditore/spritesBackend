@@ -1,2 +1,5 @@
 # spritesBackend
-Backend server for sprites db
+
+## Description
+
+Test server for sprites back-end. Learning PHP!
