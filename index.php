@@ -1,13 +1,13 @@
 <?php 
+//create connection
 
-echo "Sprites server, here we come!";
+$link = mysqli_connect($localhost, $username, $password);
 
-echo "\n";
+//check connection
 
-$firstname = readline('Enter your first name : ');
+if($link === false) {
+    die("Connection falied: " . mysqli_connect_error());
+}
 
-$lastname = readline('Enter your last name : ');
-
-echo "Please take the helm, ".$firstname." ".$lastname;
-
+echo "Connection succesful" . mysqli_get_host_info($link);
 ?>
