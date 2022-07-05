@@ -1,13 +1,8 @@
 <?php 
-//create connection
+    require("mysql_connect.php");
+    $sql = "SELECT * FROM notes";
+    $notes = $conn->query($sql);
 
-$link = mysqli_connect($localhost, $username, $password);
-
-//check connection
-
-if($link === false) {
-    die("Connection falied: " . mysqli_connect_error());
-}
-
-echo "Connection succesful" . mysqli_get_host_info($link);
+    echo "Connection Success";
 ?>
+
