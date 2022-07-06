@@ -1,5 +1,5 @@
 <?php
-    $servername = "127.0.0.1";
+    $servername = "localhost";
     $username = "root";
     $password = "";
     $dbname = "spritesTest";
@@ -17,10 +17,9 @@
         die("Connection failed: " . $conn->connect_error);
     }
 
-
     $conn->query($sql_createdb);
     $conn->select_db($dbname);
     $conn->query($sql_createtb);
 
-    return $conn;
+    echo "Connection Successful";
 ?>
