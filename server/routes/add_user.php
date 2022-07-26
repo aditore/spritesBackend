@@ -1,5 +1,5 @@
 <?php
-    require("server\config\mysql_connect.php");
+    require("../config/mysql_connect.php");
     $username = "";
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -30,7 +30,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRUD - Create</title>
-    <link rel="stylesheet" href="assets/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 
 <body>
@@ -52,7 +52,7 @@
                             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                                 <div class="mb-3">
                                     <label for="username" class="form-label">Username</label>
-                                    <input type="text" class="form-control" id="title" name="title" placeholder="An indecredible title" required />
+                                    <input type="text" class="form-control" id="title" name="username" placeholder="Type username here" required />
                                 </div>
                                 <div class="d-grid gap-2 pt-4">
                                     <button class="btn btn-primary" type="submit">Submit</button>
