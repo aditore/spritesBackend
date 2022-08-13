@@ -16,6 +16,7 @@
     </br>
     <table>
         <tr>
+            <td>ID</td>
             <td>Username</td>
             <td>Password</td>
             <td>Update</td>
@@ -23,6 +24,7 @@
         <?php
             while($res = mysqli_fetch_array($result)) {
                 echo "<tr>";
+                echo "<td>".$res['id']."</td>";
                 echo "<td>".$res['username']."</td>";
                 echo "<td>".$res['password']."</td>";
                 echo "<td><a href=\"./routes/edit_user.php?id=$res[id]\">Edit</a> | <a href=\"./routes/delete_user.php?id=$res[id]\" onClick=\"return confirm('Are you sure you want to delete?')\">Delete</a></td>";

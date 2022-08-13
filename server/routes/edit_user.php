@@ -22,11 +22,17 @@ $id = $_GET['id'];
 
 //selecting data associated with this particular id
 $result = mysqli_query($conn, "SELECT * FROM user_data WHERE id=$id");
+$resultTwo = mysqli_query($conn, "SELECT * FROM character_data WHERE userData=$id");
 
 while($res = mysqli_fetch_array($result))
 {
 	$username = $res['username'];
 	$password = $res['password'];
+}
+
+while($res = mysqli_fetch_array($resultTwo))
+{
+	$file = $res['file'];
 }
 ?>
 
@@ -51,6 +57,17 @@ while($res = mysqli_fetch_array($result))
 			<tr>
 				<td><input type="hidden" name="id" value=<?php echo $id;?>></td>
 				<td><input type="submit" name="update" value="Update"></td>
+			</tr>
+		</table>
+	</form>
+	<form name="form2" method="post" action="./add_file.php">
+		<table>
+			<tr> 
+				<td>File</td>
+				<td><button type="text" name="username" value="<?php echo $file;?>">ADD FILE</button></td>
+			</tr>
+			<tr>
+				<td><input type="hidden" name="id" value=<?php echo $id;?>></td>
 			</tr>
 		</table>
 	</form>

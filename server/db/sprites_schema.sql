@@ -12,7 +12,7 @@ CREATE TABLE user_data (
 
 CREATE TABLE character_data (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(30) NOT NULL,
+    file JSON,
     userData INT,
     FOREIGN KEY (userData) REFERENCES user_data(id)
 );
