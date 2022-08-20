@@ -61,15 +61,12 @@ while($res = mysqli_fetch_array($resultTwo))
 		</table>
 	</form>
 	<form name="form2" method="post" action="./add_file.php">
-		<table>
-			<tr> 
-				<td>File</td>
-				<td><button type="text" name="username" value="<?php echo $file;?>">ADD FILE</button></td>
-			</tr>
-			<tr>
-				<td><input type="hidden" name="id" value=<?php echo $id;?>></td>
-			</tr>
-		</table>
+		<input type="hidden" name="id" value=<?php echo $id;?>>
+		<button type="text" name="username" value="<?php echo $file;?>">ADD FILE</button>		
+	</form>
+	<form name="form3" method="delete" action="./delete_file.php">	
+		<input type="hidden" name="id" value=<?php echo $id;?>>
+		<button type="text" name="delete" value="<?php echo $id;?>">DELETE FILE</a></td>
 	</form>
 </body>
 </html>
