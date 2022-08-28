@@ -1,29 +1,31 @@
 <?php
     require("../config/mysql_connect.php");
-    
+    // if variable isn't null run the data
+	// update user data
     if(isset($_POST['update']))
 {	
-
+	// grab id, username and password from mysql connection
 	$id = mysqli_real_escape_string($conn, $_POST['id']);
-	
 	$username = mysqli_real_escape_string($conn, $_POST['username']);
 	$password = mysqli_real_escape_string($conn, $_POST['password']);
 			
-//updating the table
+// updating the table
 	$result = mysqli_query($conn, "UPDATE user_data SET username='$username',password='$password' WHERE id=$id");
 		
-//redirecting to the display page. In our case, it is index.php
+// relocate to index after stement complete
 	header("Location: ../index.php");
 }
 ?>
 <?php
-//getting id from url
+// getting id from url
+// update file
 $id = $_GET['id'];
 
 //selecting data associated with this particular id
 $result = mysqli_query($conn, "SELECT * FROM user_data WHERE id=$id");
 $resultTwo = mysqli_query($conn, "SELECT * FROM character_data WHERE userData=$id");
 
+// give two seperate results
 while($res = mysqli_fetch_array($result))
 {
 	$username = $res['username'];
@@ -42,8 +44,10 @@ while($res = mysqli_fetch_array($resultTwo))
 </head>
 
 <body>
+	<!-- link to index -->
 	<a href="../index.php">Home</a>
-	<br/>	
+	<br/>
+	<!-- edit user data	 -->
 	<form name="form1" method="post" action="./edit_user.php">
 		<table>
 			<tr> 
@@ -60,6 +64,7 @@ while($res = mysqli_fetch_array($resultTwo))
 			</tr>
 		</table>
 	</form>
+	<!-- add and delete file -->
 	<form name="form2" method="post" action="./add_file.php">
 		<input type="hidden" name="id" value=<?php echo $id;?>>
 		<button type="text" name="username" value="<?php echo $file;?>">ADD FILE</button>		

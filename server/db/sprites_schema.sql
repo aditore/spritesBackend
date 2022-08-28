@@ -1,3 +1,5 @@
+-- create sprites database
+
 DROP DATABASE IF EXISTS `sprites_test`;
 
 CREATE DATABASE `sprites_test`;
